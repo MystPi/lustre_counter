@@ -28,3 +28,6 @@ dist-ssr
 *.ez
 build
 erl_crash.dump
+
+# Vercel
+.vercel
