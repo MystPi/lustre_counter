@@ -46,7 +46,7 @@ const btn = "bg-violet-100/75 backdrop-blur text-violet-700 px-4 py-1 rounded-fu
 
 fn view(model: Model) {
   let count = case int.to_string(model) {
-    "0" -> ":("
+    "0" -> ":'("
     count -> count
   }
 
