@@ -45,10 +45,7 @@ fn update(model: Model, msg: Msg) -> Model {
 const btn = "bg-violet-100/75 backdrop-blur text-violet-700 px-4 py-1 rounded-full font-bold transition select-none hover:bg-violet-200/75 hover:scale-110 disabled:pointer-events-none disabled:bg-white"
 
 fn view(model: Model) {
-  let count = case int.to_string(model) {
-    "0" -> ":'("
-    count -> count
-  }
+  let count = int.to_string(model)
 
   let buttons = [
     button(
