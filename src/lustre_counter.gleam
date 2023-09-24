@@ -42,7 +42,7 @@ fn update(model: Model, msg: Msg) -> Model {
 
 // VIEW -----------------------------------------------------------------------
 
-const btn = "bg-violet-100/75 backdrop-blur text-violet-700 px-4 py-1 rounded-full font-bold transition select-none hover:bg-violet-200/75 hover:scale-110 disabled:pointer-events-none disabled:bg-white"
+const btn = "bg-violet-100/75 backdrop-blur text-violet-700 px-4 py-1 rounded-full font-bold transition hover:bg-violet-200/75 hover:scale-110 disabled:pointer-events-none disabled:bg-white"
 
 fn view(model: Model) {
   let count = int.to_string(model)
@@ -68,7 +68,7 @@ fn view(model: Model) {
   div(
     [
       class(
-        "w-screen h-screen flex flex-col gap-4 justify-center items-center overflow-hidden",
+        "w-screen h-screen flex flex-col gap-4 justify-center items-center overflow-hidden select-none",
       ),
     ],
     [counter, div([class("flex gap-3 items-center")], buttons)],
