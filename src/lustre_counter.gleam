@@ -5,7 +5,7 @@ import lustre
 import lustre/element.{text}
 import lustre/element/html.{button, div, input, p}
 import lustre/event.{on_click, on_input}
-import lustre/attribute.{class, disabled, placeholder, type_, value}
+import lustre/attribute.{attribute, class, disabled, placeholder, type_, value}
 
 // MAIN ------------------------------------------------------------------------
 
@@ -68,19 +68,32 @@ const btn_style = "bg-violet-50 backdrop-blur text-violet-700 px-4 py-1 rounded-
 const input_style = "col-span-3 border-b-2 border-violet-500 bg-violet-50 px-2 py-1 rounded-md text-violet-700 font-bold placeholder:font-normal placeholder:text-violet-300"
 
 fn view(model: Model) {
-  let Model(count, typed, _) = model
+  let Model(count, typed, change_by) = model
 
   let count_str = int.to_string(count)
+  let change_by_str = int.to_string(change_by)
 
   let toolbar =
     div(
       [class("grid grid-cols-3 gap-3 w-96")],
       [
         button(
-          [class(btn_style), disabled(count == 0), on_click(Changed(Decr))],
+          [
+            class(btn_style),
+            disabled(count == 0),
+            on_click(Changed(Decr)),
+            attribute("title", "-" <> change_by_str),
+          ],
           [text("Decrease")],
         ),
-        button([class(btn_style), on_click(Changed(Incr))], [text("Increase")]),
+        button(
+          [
+            class(btn_style),
+            on_click(Changed(Incr)),
+            attribute("title", "+" <> change_by_str),
+          ],
+          [text("Increase")],
+        ),
         button(
           [class(btn_style), disabled(count == 0), on_click(Changed(Reset))],
           [text("Reset")],
